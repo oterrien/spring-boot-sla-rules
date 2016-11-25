@@ -7,7 +7,6 @@ logging:
     org.springframework.web: WARN
     com.ote.test: TRACE
 
-
 spring:
   profiles:
     active: mysql

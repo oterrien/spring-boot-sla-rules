@@ -8,9 +8,13 @@ import java.util.function.Predicate;
 public interface IRule extends Predicate, Consumer<Element>, Comparable<IRule> {
 
     IRule withPriority(Integer priority);
+
     IRule withName(String name);
+
     IRule withDescription(String description);
+
     IRule withRejectionCode(String rejectionCode);
+
     IRule withParameter(List<Parameter> parameters);
 
     Integer getPriority();
@@ -41,6 +45,7 @@ public interface IRule extends Predicate, Consumer<Element>, Comparable<IRule> {
 
     @Override
     default boolean test(Object bean) {
+        // If bean is accepted by key predicate then test value predicate. Else return true (this bean is not rejected by this rule)
         return getKeyPredicate().test(bean) ? getValuePredicate().test(bean) : true;
     }
 }

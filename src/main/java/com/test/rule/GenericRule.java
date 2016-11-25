@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -83,7 +82,7 @@ public class GenericRule implements IRule {
                 map(entry -> new FieldValuePredicate(entry.getKey(), entry.getValue().stream().map(Parameter::getValue).collect(Collectors.toList()))).
                 map(p -> (Predicate) p).
                 reduce(accumulator).
-                get();
+                orElse((p) -> true);
     }
 
     @RequiredArgsConstructor

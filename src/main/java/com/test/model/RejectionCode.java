@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Entity
+@javax.persistence.Entity
 @Table(name = "REJECTION_CODE")
 public class RejectionCode {
 

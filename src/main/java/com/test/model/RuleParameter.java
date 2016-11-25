@@ -1,6 +1,5 @@
 package com.test.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,7 @@ import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
-@Entity
+@javax.persistence.Entity
 @Table(name = "RULE_PARAMETER")
 public class RuleParameter {
 

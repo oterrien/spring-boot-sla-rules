@@ -1,9 +1,9 @@
 package com.test.service.persistence.repository;
 
+import com.test.model.Entity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.test.model.Rule;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IRuleRepository extends JpaRepository<Rule, Long> {
+public interface IEntityRepository extends JpaRepository<Entity, Integer> {
 }
