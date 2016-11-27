@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import java.util.*;
-import java.util.concurrent.Callable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -71,12 +73,12 @@ public abstract class LoadAndApplyRuleService<T> {
         return result;
     }
 
-    private Supplier<List<Element<T>>> createSupplier(Element.Status status, int pageSize, int currentPage, AtomicInteger numberOfPages){
+    private Supplier<List<Element<T>>> createSupplier(Element.Status status, int pageSize, int currentPage, AtomicInteger numberOfPages) {
         return () -> {
             log.info("#####-Load and filter page #" + currentPage);
             PageRequest pageRequest = new PageRequest(currentPage, pageSize);
             Page<T> page = entityRepository.findAll(pageRequest);
-            if (numberOfPages != null){
+            if (numberOfPages != null) {
                 numberOfPages.set(page.getTotalPages());
             }
             return applyRules(page.getContent(), status);

@@ -30,13 +30,13 @@ insert into RULE_PARAMETER(RULE_ID, FIELD, VALUE, CLAUSE, TYPE, IS_KEY) values
 	'debtor', 'Debtor_2', 'DIFFERENT', 'STRING', false);
 commit;
 
-truncate table ENTITY;
-insert into ENTITY(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
+truncate table invoice;
+insert into invoice(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
 ('Debtor_1', 'FR', 'EUR', 'Seller_1', '2016-03-20', 1);
-insert into ENTITY(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
+insert into invoice(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
 ('Debtor_1', 'FR', 'EUR', 'Seller_2', '2016-10-09', 2);
-insert into ENTITY(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
+insert into invoice(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
 ('Debtor_2', 'UK', 'GBP', 'Seller_1', '2016-10-17', 3);
-insert into ENTITY(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
+insert into invoice(DEBTOR, COUNTRY, CURRENCY, SELLER, INVOICE_DATE, NUMBER_OF_INVOICES) values
 ('Debtor_2', 'FR', 'GBP', 'Seller_2', '2016-04-16', 4);
 commit;
